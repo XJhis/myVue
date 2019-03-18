@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自己写个vue</title>
+	<style>
+		*{margin:0; padding: 0}
+		.box {
+			width: 400px;
+			padding-top: 40px;
+			margin: 0 auto;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<input type="text"/ class="name" value="">
+		<p class="text"></p>
+	</div>
+	<script>
+
+		//一个非常简单的双向数据绑定
+		
+		var obj = {};
+
+		//数据层改变 => 视图改变
+		Object.defineProperty(obj, 'name', {
+			configurable: true,
+			enumberable: true,
+			set: function (newVal) {
+				document.querySelector('.text').innerHTML = newVal;
+				document.querySelector('.name').value = newVal;
+			},
+			get: function (ar1) {
+			}
+		})
+
+		//视图层改变 => 数据层
+		document.querySelector('.name').oninput=function (e) {
+			obj.name = e.target.value;			
+		}
+
+		
+
+	</script>
+</body>
+</html>
