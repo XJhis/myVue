@@ -13,12 +13,14 @@
 	</style>
 </head>
 <body>
-	<div id="app">
+	<div id="app" v-model='123'>
 		<input type="text" class="name" v-model="name" />
-		<p class="text">{{name}}</p>
+		<br>
+		{{name}}
 	</div>
+	<script src="./js/myVue.js"></script>
 	<script>
-		var app = new Vue({
+		var app = new MyVue({
 			el: '#app',
 			data: {
 				name: 'pitter'
